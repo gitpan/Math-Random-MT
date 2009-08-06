@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                Math-Random-MT
-version:             1.08
+version:             1.10
 abstract:            The Mersenne Twister PRNG
 license:             ~
 author:              ~
