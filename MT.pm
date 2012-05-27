@@ -3,12 +3,11 @@ package Math::Random::MT;
 use strict;
 use Carp;
 use DynaLoader;
-use Time::HiRes qw(gettimeofday); # standard in Perl >= 5.8
 use vars qw( @ISA $VERSION );
 
 my $gen = undef;
 @ISA = qw( DynaLoader );
-$VERSION = '1.14_1';
+$VERSION = '1.14';
 
 bootstrap Math::Random::MT $VERSION;
 
@@ -56,9 +55,9 @@ sub _rand_seed {
     my ($self) = @_;
 
     # Get a seed at random through Perl's CORE::rand(). We do not call
-    # CORE::srand() to avoid altering the random numbers that other running
-    # scripts might be using. When using _rand_seed(), the seeds obtained are
-    # all different, even when doing many rapid calls to the function.
+    # CORE::srand() to avoid altering the random numbers that other parts of
+    # the running script might be using. The seeds obtained by rapid calls to
+    # the _rand_seed() function are all different.
     
     return int(CORE::rand(2**32));
 }
